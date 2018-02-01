@@ -9,7 +9,6 @@ app = Flask(__name__)
 def demo():
     output = "<html><body><h1>Hello</h1></body></html>"
     return output
-
 @app.route('/index', methods=['GET','POST'])
 def index():
     if request.method == 'GET':
@@ -23,7 +22,7 @@ def astuce(cityName):
         h = httplib2.Http()
         result = json.loads(h.request(url,'GET')[1])
         return jsonify(result)
-        print result
+        print (result)
 
 @app.route('/requests/', methods=['GET','POST'])
 def requestCity():
@@ -48,7 +47,7 @@ def getHockeyPlayerStatus(games, age, points):
     url = ('http://conu.astuce.media/api/sports/hockey/gfx/statistic/person/ranking.json?Stat=SkatingGamesPlayed&SkatingGamesPlayed=%s&age=%s&SkatingPointsTotal=%s&take=2' % (games, age, points))
     h = httplib2.Http()
     result = json.loads(h.request(url,'GET')[1])
-    print "what's going on "
+    print ("what's going on ")
     return jsonify(result)
 
 #
